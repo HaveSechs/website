@@ -88,11 +88,13 @@ class Example extends Phaser.Scene {
     new_asteroid () {
         this.asteroids.push(this.physics.add.sprite(Math.random() * 800, 0, 'asteroid'))
         this.physics.add.collider(this.player, this.asteroids[this.asteroids.length - 1]);
-    }
+    }  // hello gm loli
 
     update () {
         var aKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         var dKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        var rKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        var lKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     
         const minX = 0 + this.player.width / 2;
         const maxX = this.game.config.width - this.player.width / 2;
@@ -108,11 +110,11 @@ class Example extends Phaser.Scene {
             }
         }
         
-        if (aKey.isDown && this.player.x > minX) {
+        if (aKey.isDown && this.player.x > minX || lKey.isDown && this.player.x > minX) {
             this.player.x -= 5;
         }
     
-        if (dKey.isDown && this.player.x < maxX) {
+        if (dKey.isDown && this.player.x < maxX || rKey.isDown && this.player.x < maxX) {
             this.player.x += 5;
         }
     }
