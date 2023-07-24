@@ -1,0 +1,25 @@
+body {
+    color: white;
+    background-color: black;
+
+    margin: 0;
+    padding: 0;
+}
+
+#run {
+    width: 100vw;
+    background-color: green;
+}
+
+#code {
+    height: 90vh;
+    width: 99vw;
+
+    color: white;
+    background-color: black;
+}
+
+#console {
+    width: 99vw;
+    border: 1px solid white;
+}
