@@ -12,3 +12,5 @@ form.addEventListener("submit", function (e) {
     eval(exploit);
     document.getElementById("code").value = exploit;
 })
+
+// line added so github will force a rebuild
