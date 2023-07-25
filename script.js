@@ -3,14 +3,18 @@ console.log = function (s) {
 }
 
 var form = document.getElementById("form");
+document.getElementById("code").value = window.localStorage.getItem("code") ?? "";
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     var exploit = document.getElementById("code").value;
-    
-    eval(exploit);
-    document.getElementById("code").value = exploit;
-})
 
-// line added so github will force a rebuild
+    try {
+        eval(exploit)
+    } catch (error) {
+        document.getElementById("console").innerHTML += `<div class="error">${error}</div>`
+    }
+    document.getElementById("code").value = exploit;
+    window.localStorage.code = exploit;
+})
