@@ -6,6 +6,10 @@ body {
     padding: 0;
 }
 
+.error {
+    background-color: red;
+}
+
 #run {
     width: 100vw;
     background-color: green;
