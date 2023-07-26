@@ -11,8 +11,26 @@ body {
 }
 
 #run {
+    border: none;
+    outline: none;
+    color: white;
+    
     width: 100vw;
     background-color: green;
+}
+
+#clear {
+    border: none;
+    outline: none;
+    color: white;
+
+    width: 100vw;
+    background-color: red;
+    margin-top: 0;
+}
+
+#run:hover, #clear:hover {
+    cursor: pointer;
 }
 
 #code {

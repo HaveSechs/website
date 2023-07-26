@@ -2,6 +2,10 @@ console.log = function (s) {
     document.getElementById("console").innerHTML += s + "<br>";
 }
 
+function clear_() {
+    document.getElementById("console").innerHTML = `<h3 style="color: gold; line-height: 0.25em;">Sachs is my daddy</h3>`;
+}
+
 var form = document.getElementById("form");
 document.getElementById("code").value = window.localStorage.getItem("code") ?? "";
 
