@@ -3,22 +3,36 @@ console.log = function (s) {
 }
 
 function clear_() {
-    document.getElementById("console").innerHTML = `<h3 style="color: gold; line-height: 0.25em;">Sachs is my daddy</h3>`;
+    document.getElementById("console").innerHTML = `<h3 style="color: gold; line-height: 0.25em; font-family: 'Bungee Spice', cursive;">Sachs is my daddy</h3>`;
 }
 
 var form = document.getElementById("form");
-document.getElementById("code").value = window.localStorage.getItem("code") ?? "";
+var code = document.getElementById("code");
+
+var fonts = [
+    "Kablammo, cursive",
+    "Bungee Spice, cursive",
+    "Moirai One, cursive"
+]
+
+code.value = window.localStorage.getItem("code") ?? "";
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var exploit = document.getElementById("code").value;
+    var exploit = code.value;
 
     try {
-        eval(exploit)
+        eval(exploit);
     } catch (error) {
         document.getElementById("console").innerHTML += `<div class="error">${error}</div>`
     }
-    document.getElementById("code").value = exploit;
+    code.value = exploit;
     window.localStorage.code = exploit;
+})
+
+code.addEventListener("input", function (e) {
+    var font = fonts[Math.floor(Math.random() * fonts.length)];
+    code.style.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+    code.style.fontFamily = font;
 })

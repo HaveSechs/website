@@ -17,6 +17,7 @@ body {
     
     width: 100vw;
     background-color: green;
+    font-family: 'Bungee Spice', cursive;
 }
 
 #clear {
@@ -27,6 +28,7 @@ body {
     width: 100vw;
     background-color: red;
     margin-top: 0;
+    font-family: 'Kablammo', cursive;
 }
 
 #run:hover, #clear:hover {
