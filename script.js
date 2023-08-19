@@ -12,7 +12,8 @@ var code = document.getElementById("code");
 var fonts = [
     "Kablammo, cursive",
     "Bungee Spice, cursive",
-    "Moirai One, cursive"
+    "Moirai One, cursive",
+    "Rubik Maze, cursive"
 ]
 
 code.value = window.localStorage.getItem("code") ?? "";
@@ -20,7 +21,7 @@ code.value = window.localStorage.getItem("code") ?? "";
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var exploit = code.value;
+    var exploit = code.textContent;
 
     try {
         eval(exploit);
@@ -31,8 +32,23 @@ form.addEventListener("submit", function (e) {
     window.localStorage.code = exploit;
 })
 
-code.addEventListener("input", function (e) {
-    var font = fonts[Math.floor(Math.random() * fonts.length)];
-    code.style.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
-    code.style.fontFamily = font;
+document.addEventListener("keydown", function(event) {
+    if (/^[A-Za-z]$/.test(event.key)) {
+        code.innerHTML += event.key;
+    } else if (event.key == ".") {
+        code.innerHTML += ".";
+    } else if (event.key == "(") {
+        code.innerHTML += "(";
+    } else if (event.key == ")") {
+        code.innerHTML += ")";
+    } else if (event.key == "\"") {
+        code.innerHTML += "\"";
+    } else if (event.key == " ") {
+        event.preventDefault();
+        code.innerHTML += event.key;
+    } else if (event.key == "Enter") {
+        code.innerHTML += "<br>";
+    } else if (event.key == "Backspace") {
+        code.innerHTML = "";
+    }
 })
